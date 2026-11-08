@@ -21,8 +21,7 @@ internal class IniFile
 	public IniFile()
 	{
 		string applicationBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-		string text = applicationBase.Substring(0, applicationBase.IndexOf('\\') + 1);
-		strIniFilePath = text + "MiFlashvcom.ini";
+		strIniFilePath = Path.Combine(applicationBase, "MiFlashvcom.ini");
 		if (!File.Exists(strIniFilePath))
 		{
 			using (FileStream fileStream = File.Create(strIniFilePath))
